@@ -4,6 +4,7 @@ define("app",["express"],function(express){
 	var END_POINT = "http://localhost:8082"; // endpoint where dhis is deployed
 	var SERVER_PORT = 8187;
 
+	// public methods
 	app.getPort = getPort;
 	app.getHeaders = getHeaders;
 	app.getEndPoint = getEndPoint;

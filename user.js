@@ -12,10 +12,12 @@ define("user",["app","request"],function(app,request){
 
 	return user;
 
+	// initialise user module
 	function init(){
 		get();
 	} // end of init
 
+	// get users
 	function get(){
 
 		// the below api is for Express framework 'GET' method
