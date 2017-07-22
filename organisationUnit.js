@@ -38,8 +38,6 @@ define("organisationUnit",["app","request"],function(app,request){
 					res.send(error);
 				}else{
 					res.status(200);
-					res.set("Content-Type","application/json");
-
 					res.send(response);			
 				}
 				

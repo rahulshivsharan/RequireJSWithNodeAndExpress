@@ -4,12 +4,23 @@ requireJS.config({
 	nodeRequire : require
 });
 
-requireJS(["app","organisationUnit","user"],function(app,organisationUnit,user){
+requireJS([	"app",
+			"organisationUnit",
+			"user",
+			"metadata",
+			"dataElement"],
+		  function(	app,
+					organisationUnit,
+					user,
+					metadata,
+					dataElement){
 
 	var server = app.listen(app.getPort(),serverFn);
 
 	organisationUnit.init();
 	user.init();
+	metadata.init();
+	dataElement.init();
 
 	function serverFn(){
 

@@ -10,11 +10,7 @@ define("app",["express"],function(express){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=vp00bxehm5odCRQXAAAq; JSESSIONID=18hymhmt2jiqkv4eeyyrrguac",
-		"Content-Type" : "application/json",
-		"Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-		"GET" : "/api/organisationUnits.json HTTP/1.1",
-		"Host" : "localhost:8082"
+		"Cookie" : "io=-4m0nrYZXnfeNYBhAADR; JSESSIONID=1wuf55y9k3lek1f0j8a2xpclsw"
 	}
 
 	// cors headers set

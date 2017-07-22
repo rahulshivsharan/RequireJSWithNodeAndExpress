@@ -1,30 +1,37 @@
-define("user",["app","request"],function(app,request){
-	var user = {};
+define("dataElement",["app","request"],function(app,request){
+	var dataElement = {};
+
+	//http://localhost:8082/api/24/dataElements.json?filter=id:eq:rhXstKVfvvj
 
 	// private variables
-	var URL = "/api/users.json";
+	var URL = "/api/24/dataElements.json";
 
 	// public methods
-	user.init = init;
+	dataElement.init = init;
 
 	// private methods
 	var get = get;
 
-	return user;
+	return dataElement;
 
-	// initialise user module
 	function init(){
 		get();
-	} // end of init
+	}
 
-	// get users
 	function get(){
-
 		// the below api is for Express framework 'GET' method
 		// for the particular URL 
 		app.get(URL,function(req,res){
+			
+			var urlAppend = "";
+			
+			if(req.query["filter"] !== undefined){
+				urlAppend += "?filter="+ req.query["filter"];  
+			}
+			
 			var url = app.getEndPoint() + URL;
-
+			url += urlAppend;
+			console.log(url);
 			request({
 				url : url,
 				method : "GET",
