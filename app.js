@@ -10,7 +10,7 @@ define("app",["express"],function(express){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=-4m0nrYZXnfeNYBhAADR; JSESSIONID=1wuf55y9k3lek1f0j8a2xpclsw"
+		"Cookie" : "io=UodRzMRTogfv1KZuAACJ; JSESSIONID=1w2k2f99qe25q1brvdmr2edpsz"
 	}
 
 	// cors headers set

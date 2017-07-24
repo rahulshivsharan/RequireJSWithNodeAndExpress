@@ -9,13 +9,73 @@ define("user",["app","request"],function(app,request){
 
 	// private methods
 	var get = get;
+	var getBasicInfoOfCurrentUser = getBasicInfoOfCurrentUser;
+	var getUserRoles = getUserRoles;
 
 	return user;
 
 	// initialise user module
 	function init(){
 		get();
+		getBasicInfoOfCurrentUser();
+		getUserRoles();
 	} // end of init
+
+	function getBasicInfoOfCurrentUser(){
+		var $url = "/api/me.json";
+		
+		app.get($url,function(req,res){
+			var url = app.getEndPoint() + $url;
+
+			request({
+				url : url,
+				method : "GET",
+				headers : app.getHeaders()
+			},function(error,response){
+				
+				if(error){
+
+					res.status(400);
+					res.send(error);
+				}else{
+					res.status(200);
+					res.send(response);			
+				}
+				
+				res.end();	
+			}); // end of request api
+
+		}); // end of app.get
+
+	} // end of 'getBasicInfoOfCurrentUser'
+
+	function getUserRoles(){
+		var $url = "/api/userRoles.json";
+		
+		app.get($url,function(req,res){
+			var url = app.getEndPoint() + $url;
+
+			request({
+				url : url,
+				method : "GET",
+				headers : app.getHeaders()
+			},function(error,response){
+				
+				if(error){
+
+					res.status(400);
+					res.send(error);
+				}else{
+					res.status(200);
+					res.send(response);			
+				}
+				
+				res.end();	
+			}); // end of request api
+
+		}); // end of app.get
+
+	} // end of 'getUserRoles'
 
 	// get users
 	function get(){
@@ -45,5 +105,5 @@ define("user",["app","request"],function(app,request){
 
 		}); // end of app.get
 
-	} // end of get
+	} // end of get users
 });
