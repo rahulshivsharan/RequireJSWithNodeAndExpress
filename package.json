@@ -7,10 +7,23 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Rahul Shivsharan",
   "license": "ISC",
   "devDependencies": {
     "express": "^4.15.3",
     "request": "^2.81.0"
-  }
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "request": "^2.81.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulshivsharan/RequireJSWithNodeAndExpress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rahulshivsharan/RequireJSWithNodeAndExpress/issues"
+  },
+  "homepage": "https://github.com/rahulshivsharan/RequireJSWithNodeAndExpress#readme"
 }

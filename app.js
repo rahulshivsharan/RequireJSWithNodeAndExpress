@@ -1,5 +1,6 @@
-define("app",["express"],function(express){
+define("app",["express","body-parser"],function(express,bodyParser){
 	var app = express();
+
 
 	var END_POINT = "http://localhost:8082"; // endpoint where dhis is deployed
 	var SERVER_PORT = 8187;
@@ -10,7 +11,7 @@ define("app",["express"],function(express){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=UodRzMRTogfv1KZuAACJ; JSESSIONID=1w2k2f99qe25q1brvdmr2edpsz"
+		"Cookie" : "io=55jayoM32GWugRyAAAAA; JSESSIONID=l2xshl02vnm7cy9p4cipra4y"
 	}
 
 	// cors headers set
@@ -18,7 +19,12 @@ define("app",["express"],function(express){
 	  res.header("Access-Control-Allow-Origin", "*");
 	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	  next();
-	});	
+	});
+
+	app.use(bodyParser.json());
+	app.use(bodyParser.urlencoded({
+		"extended" : true
+	}));	
 
 	return app;
 

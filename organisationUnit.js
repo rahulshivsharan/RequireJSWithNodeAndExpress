@@ -7,6 +7,7 @@ define("organisationUnit",["app","request"],function(app,request){
 
 	// private methods
 	var get = get;
+	var create = create;
 
 	// public methods
 	organisationUnit.init = init; 
@@ -16,6 +17,7 @@ define("organisationUnit",["app","request"],function(app,request){
 	// initialise organisationUnit
 	function init(){
 		get();
+		create();
 	} // end of init
 
 	// get Organisation Units
@@ -29,7 +31,7 @@ define("organisationUnit",["app","request"],function(app,request){
 			request({
 				url : url,
 				method : "GET",
-				headers : app.getHeaders()
+				headers : app.getHeaders()				
 			},function(error,response){
 				
 				if(error){
@@ -47,4 +49,40 @@ define("organisationUnit",["app","request"],function(app,request){
 		}); // end of app.get
 
 	} // end of get method
+
+	function create(){
+		app.post(URL,function(req,res){
+			var url = app.getEndPoint() + URL;
+			
+			var name = req.body.name,
+				id = req.body.id,
+				shortName = req.body.shortName,
+				openingDate = req.body.openingDate;
+			request({
+				url : url,
+				method : "POST",
+				headers : app.getHeaders(),
+				json : true,
+				body : {
+					"id" : id, // should be 11 charaters long
+					"name" : name,
+  					"shortName" : shortName,
+  					"openingDate" : openingDate
+				}
+			},function(error,response){
+				
+				if(error){
+
+					res.status(400);
+					res.send(error);
+				}else{
+					res.status(200);
+					res.send(response);			
+				}
+				
+				res.end();	
+			}); // end of request api
+
+		}); // end of app.get
+	} // end of create
 });
