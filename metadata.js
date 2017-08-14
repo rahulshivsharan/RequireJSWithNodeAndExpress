@@ -47,17 +47,24 @@ define("metadata",["app","request","metaDataImport"],function(app,request,metaDa
 	} // end of get
 
 	function post(){
-		// the below api is for Express framework 'GET' method
+		// the below api is for Express framework 'POST' method
 		// for the particular URL 
-		app.post(URL,function(req,res){
+		app.post("/api/metadata",function(req,res){
+			console.log("Request XML ");
 			var url = app.getEndPoint() + URL;
-
+			var data = req.body;
+			
+			//console.log(data.toString());
+			
+			var headerObject = app.getHeaders();
+			headerObject["Content-Type"] = "application/xml"
+			
 			request({
 				url : url,
 				method : "POST",
-				headers : app.getHeaders(),
-				json : true,
-				body : metaDataImport.getData()
+				headers : headerObject,
+				json : false,
+				body : data.toString()
 			},function(error,response){
 				
 				if(error){
@@ -70,9 +77,9 @@ define("metadata",["app","request","metaDataImport"],function(app,request,metaDa
 				}
 				
 				res.end();	
-			}); // end of request api
+			 }); // end of request api
 
-		}); // end of app.get
+		}); // end of app.post
 
 	} // end of get
 });

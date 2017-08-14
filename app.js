@@ -11,7 +11,13 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=55jayoM32GWugRyAAAAA; JSESSIONID=l2xshl02vnm7cy9p4cipra4y"
+		"Cookie" : "JSESSIONID=1xe40ecpnv09y6yrysrpg8vk2"
+	}
+
+	var rawBodySaver = function (req, res, buf, encoding) {
+		  if (buf && buf.length) {
+		    req.rawBody = buf.toString(encoding || 'utf8');
+		  }
 	}
 
 	// cors headers set
@@ -21,10 +27,15 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	  next();
 	});
 
-	app.use(bodyParser.json());
-	app.use(bodyParser.urlencoded({
-		"extended" : true
-	}));	
+	// app.use(bodyParser.json());
+	// app.use(bodyParser.urlencoded({
+	// 	"extended" : true
+	// }));
+
+	app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
+	app.use(bodyParser.raw({ verify: rawBodySaver, type: function () { return true } }));
+	app.use(bodyParser.json({ verify: rawBodySaver }));
+		
 
 	return app;
 

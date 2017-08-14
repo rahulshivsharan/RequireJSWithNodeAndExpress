@@ -31,7 +31,7 @@ define("dataElement",["app","request"],function(app,request){
 			
 			var url = app.getEndPoint() + URL;
 			url += urlAppend;
-			console.log(url);
+			//console.log(url);
 			request({
 				url : url,
 				method : "GET",
