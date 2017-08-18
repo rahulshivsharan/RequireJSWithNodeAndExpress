@@ -10,7 +10,7 @@ define("dataElement",["app","request"],function(app,request){
 	dataElement.init = init;
 
 	// private methods
-	var get = get;
+	var get = get;	
 
 	return dataElement;
 
@@ -53,4 +53,5 @@ define("dataElement",["app","request"],function(app,request){
 		}); // end of app.get
 
 	} // end of get
+
 });

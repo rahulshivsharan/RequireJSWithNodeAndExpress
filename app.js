@@ -11,7 +11,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=wC9i0FlACcbvM9I9AAA4; JSESSIONID=1ib2tyzmc7aghmic0vt386ldm"
+		"Cookie" : "JSESSIONID=1u7rymg6c5wwcckim9su94nw4"
 	}
 
 	var rawBodySaver = function (req, res, buf, encoding) {

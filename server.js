@@ -10,14 +10,16 @@ requireJS([	"app",
 			"metadata",
 			"dataElement",
 			"categoryOptionCombos",
-			"organisationUnitLevels"],
+			"organisationUnitLevels",
+			"dataValueSets" ],
 		  function(	app,
 					organisationUnit,
 					user,
 					metadata,
 					dataElement,
 					categoryOptionCombos,
-					organisationUnitLevels){
+					organisationUnitLevels,
+					dataValueSets){
 
 	var server = app.listen(app.getPort(),serverFn);
 
@@ -27,6 +29,7 @@ requireJS([	"app",
 	dataElement.init();
 	categoryOptionCombos.init();
 	organisationUnitLevels.init();
+	dataValueSets.init();
 
 	function serverFn(){
 
