@@ -11,7 +11,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "JSESSIONID=1u7rymg6c5wwcckim9su94nw4"
+		"Cookie" : "io=eyPFkjSxrG7aNipPAAAH; JSESSIONID=1kliy4wsrxnz0w3wl6jj6xztq"
 	}
 
 	var rawBodySaver = function (req, res, buf, encoding) {
@@ -32,9 +32,11 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	// 	"extended" : true
 	// }));
 
-	app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
-	app.use(bodyParser.raw({ verify: rawBodySaver, type: function () { return true } }));
-	app.use(bodyParser.json({ verify: rawBodySaver }));
+	
+
+	app.use(bodyParser.json({ verify: rawBodySaver,limit: '50mb' }));
+	app.use(bodyParser.raw({ verify: rawBodySaver,limit: '50mb', type: function () { return true } }));
+	app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true, limit: '50mb' }));
 		
 
 	return app;

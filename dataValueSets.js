@@ -18,12 +18,14 @@ define("dataValueSets",["app","request"],function(app,request){
 		
 		app.post(URL,function(req,res){
 			
-			var url = app.getEndPoint() + URL;
-			var data = req.body.data;
+			var url = app.getEndPoint() + URL + "?importStrategy=" + req.query["importStrategy"];
+			var data = {};
+			data["dataValues"] = req.body.dataValues;
 			
-			console.log(data);
+			//console.log(" URL ",url);
+			//console.log(" Request Param ",data);
 			
-			/*
+						
 			request({
 				url : url,
 				method : "POST",
@@ -41,10 +43,10 @@ define("dataValueSets",["app","request"],function(app,request){
 					res.send(response);			
 				}
 				
-					
+				res.end();	
 			 }); // end of request api
-			 */
-			 res.end();
+			 
+			 
 		}); // end of app.post
 
 	} // importBulkData

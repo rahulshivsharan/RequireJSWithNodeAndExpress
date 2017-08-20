@@ -58,6 +58,13 @@ define("organisationUnit",["app","request"],function(app,request){
 				id = req.body.id,
 				shortName = req.body.shortName,
 				openingDate = req.body.openingDate;
+
+			console.log("Name ",name);
+			console.log("id ",id);
+			console.log("shortName ",shortName);
+			console.log("openingDate ",openingDate);	
+
+				
 			request({
 				url : url,
 				method : "POST",
@@ -81,7 +88,8 @@ define("organisationUnit",["app","request"],function(app,request){
 				}
 				
 				res.end();	
-			}); // end of request api
+			});
+			// end of request api
 
 		}); // end of app.get
 	} // end of create
