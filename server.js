@@ -12,7 +12,8 @@ requireJS([	"app",
 			"categoryOptionCombos",
 			"organisationUnitLevels",
 			"dataValueSets",
-			"indicators"],
+			"indicators",
+			"dataElementOperands"],
 		  function(	app,
 					organisationUnit,
 					user,
@@ -21,7 +22,8 @@ requireJS([	"app",
 					categoryOptionCombos,
 					organisationUnitLevels,
 					dataValueSets,
-					indicators){
+					indicators,
+					dataElementOperands){
 
 	var server = app.listen(app.getPort(),serverFn);
 
@@ -33,6 +35,7 @@ requireJS([	"app",
 	organisationUnitLevels.init();
 	dataValueSets.init();
 	indicators.init();
+	dataElementOperands.init();
 
 	function serverFn(){
 

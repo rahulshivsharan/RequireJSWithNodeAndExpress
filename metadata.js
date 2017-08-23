@@ -57,7 +57,7 @@ define("metadata",["app","request","metaDataImport"],function(app,request,metaDa
 			//console.log(data.toString());
 			
 			var headerObject = app.getHeaders();
-			headerObject["Content-Type"] = "application/xml"
+			headerObject["Content-Type"] = "application/xml";
 			
 			request({
 				url : url,
