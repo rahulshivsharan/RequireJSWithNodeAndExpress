@@ -11,7 +11,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=VDj1zi3hcQkYUQWMAAAF; JSESSIONID=leqzlqxf8wcq1k0r73avz1ohx"
+		"Cookie" : "io=EvekywGlPlMawMZrAAAB; JSESSIONID=b0xf9i63uqu2xewxryllkau7"
 	}
 
 	var rawBodySaver = function (req, res, buf, encoding) {
@@ -24,6 +24,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.use(function(req, res, next) {
 	  res.header("Access-Control-Allow-Origin", "*");
 	  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	  res.header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE");	  
 	  next();
 	});
 

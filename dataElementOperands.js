@@ -1,6 +1,6 @@
 define("dataElementOperands",["app","request"],function(app,request){
 	var obj = {};
-	var URL = "/api/27/dataElementOperands.json";
+	var URL = "/api/26/dataElementOperands.json";
 
 	obj.init = init;
 
