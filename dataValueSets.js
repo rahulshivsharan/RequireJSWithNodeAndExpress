@@ -1,6 +1,6 @@
 define("dataValueSets",["app","request"],function(app,request){
 	var obj = {};
-	var URL = "/api/24/dataValueSets";
+	var URL = "/api/dataValueSets"; ///api/24/dataValueSets
 
 	// public methods
 	obj.init = init;

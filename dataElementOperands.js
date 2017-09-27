@@ -1,6 +1,6 @@
-define("dataElementOperands",["app","request"],function(app,request){
+define("dataElementOperands",["app","request","underscore"],function(app,request,_){
 	var obj = {};
-	var URL = "/api/26/dataElementOperands.json";
+	var URL = "/api/dataElementOperands.json"; ///api/26/dataElementOperands.json"
 
 	obj.init = init;
 
@@ -18,7 +18,22 @@ define("dataElementOperands",["app","request"],function(app,request){
 			var urlAppend = "";
 			
 			if(req.query["filter"] !== undefined){
-				urlAppend += "?filter="+ req.query["filter"];  
+				
+				console.log(req.query["filter"]);
+				
+				if(_.isArray(req.query["filter"])){
+					for(var x = 0; x < req.query["filter"].length; x++){
+						if(x === 0){
+							urlAppend += "?filter="+ req.query["filter"][x];	
+						}else{
+							urlAppend += "&filter="+ req.query["filter"][x];	
+						}
+						
+					}
+				}else{
+					urlAppend += "?filter="+ req.query["filter"];  	
+				}
+				
 			}
 
 			if(req.query["fields"] !== undefined){

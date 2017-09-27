@@ -4,7 +4,7 @@ define("dataElement",["app","request"],function(app,request){
 	//http://localhost:8082/api/24/dataElements.json?filter=id:eq:rhXstKVfvvj
 
 	// private variables
-	var URL = "/api/24/dataElements.json";
+	var URL = "/api/dataElements.json"; ///api/24/dataElements.json
 
 	// public methods
 	dataElement.init = init;

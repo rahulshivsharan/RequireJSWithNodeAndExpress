@@ -3,6 +3,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 
 
 	var END_POINT = "http://localhost:8082"; // endpoint where dhis is deployed
+	END_POINT = "http://hivpopdata.org/service"; // HIVPOPData1 / HIVPOPData1
 	var SERVER_PORT = 8187;
 
 	// public methods
@@ -11,7 +12,7 @@ define("app",["express","body-parser"],function(express,bodyParser){
 	app.getEndPoint = getEndPoint;
 
 	var headerObject = {
-		"Cookie" : "io=EvekywGlPlMawMZrAAAB; JSESSIONID=b0xf9i63uqu2xewxryllkau7"
+		"Cookie" : "JSESSIONID=9CE985AE9ADC853BED65549145501D3B"
 	}
 
 	var rawBodySaver = function (req, res, buf, encoding) {
